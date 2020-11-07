@@ -1,8 +1,9 @@
-import Header from './components/header/header';
+import Game from './components/game/game';
+import './style/common.css'
 
 function App() {
   return (
-    <Header />
+    <Game />
   );
 }
 
