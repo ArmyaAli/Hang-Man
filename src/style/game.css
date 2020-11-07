@@ -1,7 +1,5 @@
 .game-canvas {
     display: block;
-    width: 800px;
-    height: 800px;
     background: lightgreen;
     margin: 16px auto;
 }
