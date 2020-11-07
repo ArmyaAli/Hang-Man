@@ -1,0 +1,11 @@
+.header-container {
+    height: 64px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 64px;
+}
+
+.header-text {
+    font-size: 32px;
+    font-weight: bold;
+}
