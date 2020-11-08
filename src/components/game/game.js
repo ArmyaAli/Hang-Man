@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Header from "../header/header";
 import React from "react";
 import "../../style/game.css";
@@ -38,7 +37,7 @@ class Game extends React.Component {
             // API CALL
             console.log(this.state.url);
             lookForWords(this.state.url + this.state.category).then((data) => {
-              this.setState({ word: data[getRandomInt(data.length)].word });
+              this.setState({ word: data[getRandomInt(data.length)].word});
               console.log(this.state.word);
             });
           }}
@@ -55,22 +54,6 @@ class Game extends React.Component {
           <HealthBar health="6" />
       </div>
     );
-=======
-import Header from '../header/header'
-import React from 'react';
-import '../../style/game.css'
-
-class Game extends React.Component {
-
-    render() {
-      return (
-        <div class="page-container">
-            <Header />
-            <canvas id="canvas" className="game-canvas" height="600" width="600"></canvas>
-        </div>
-      );
-    }
->>>>>>> e75f6d12d9f545b1586c0a237ef5ec7553486568
   }
 }
 

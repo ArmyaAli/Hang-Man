@@ -8,22 +8,22 @@ const unHealthIcon = <FavoriteBorderIcon />;
 class HealthBar extends React.Component {
     constructor(props) {
         super(props);
+        
         this.state = {
-            list: [],
+            lives: this.setLivesArray(props),
             health: props.health
         };
-        this.init();
+
+        console.log(this.state.lives);
     }
 
-    init() {
-        let hp = this.state.list.slice();
+    setLivesArray(props) {
+        let hp = [];
 
-        for(let i = 0; i < this.state.health; ++i) {
+        for(let i = 0; i < props.health; ++i) {
             hp.push(heartIcon);
         }
-        this.setState({list: hp})
-        console.log('hp:', hp)
-        console.log('internal: ', this.state.list)
+        return [...hp];
     }
 
     remove() {
@@ -40,9 +40,12 @@ class HealthBar extends React.Component {
     }
 
     render() {
+        const lives = this.state.lives.map((Life, index) => {
+            return <span key={index}>{Life}</span>;
+        });
         return(
             <div>
-            Hello
+                {lives}
             </div>
         );
     }
