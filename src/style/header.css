@@ -1,12 +1,12 @@
 .header-container {
-    height: 64px;
-    width: 100%;
-    background-color: lightcoral;
-    text-align: center;
-    line-height: 64px;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .header-text {
-    font-size: 32px;
-    font-weight: bold;
+    flex-grow: 1;
+}
+
+.menuButton {
+    margin-right: 16px;
 }
