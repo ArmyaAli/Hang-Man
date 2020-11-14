@@ -1,4 +1,4 @@
-# This is a game of Hang-man created with react. The idea is to learn react using project based learning. Currently the Hang-man games features basic functionality of Hang-man # where the user is able to search for a word using a Category. Material-UI is used extensively throughout the app. Currently we are using https://www.datamuse.com/api/ as our REST API, however once we are finished with the client-side codebase we will implement our own backend.  
+This is a game of Hang-man created with react. The idea is to learn react using project based learning. Currently the Hang-man games features basic functionality of Hang-man # where the user is able to search for a word using a Category. Material-UI is used extensively throughout the app. Currently we are using https://www.datamuse.com/api/ as our REST API, however once we are finished with the client-side codebase we will implement our own backend.  
 
 
 # Getting Started with Create React App
