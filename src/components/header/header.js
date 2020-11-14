@@ -5,7 +5,14 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-function Header() {
+function HealthBar(props) {
+  const lives = props.lives.map((Life, index) => {
+    return <span key={index}>{Life}</span>;
+  });
+  return lives;
+}
+
+function Header(props) {
   return (
     <div className="header-container">
       <AppBar position="static">
@@ -16,6 +23,7 @@ function Header() {
           <Typography variant="h6" className="header-text" align="center">
             Ali and Ringo's Hangman Game
           </Typography>
+          <HealthBar lives={props.lives}/>
         </Toolbar>
       </AppBar>
     </div>

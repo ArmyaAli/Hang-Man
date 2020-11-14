@@ -12,3 +12,18 @@ body {
     height: 100%;
     width: 100%;
 }
+
+.picks-container {
+    margin: 8px;
+}
+
+.letter {
+    text-decoration: underline;
+    margin: 4px 4px;
+    font-size: 40px;
+}
+
+.noLetter {
+    margin: 4px 4px;
+    font-size: 40px;
+}
