@@ -27,3 +27,27 @@ body {
     margin: 4px 4px;
     font-size: 40px;
 }
+
+.userInputs {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.displayed {
+    text-align: center;
+}
+
+.chips {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}

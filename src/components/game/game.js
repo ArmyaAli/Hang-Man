@@ -27,7 +27,6 @@ function ChipsLetter(props) {
     return <Chip
             key={index} 
             label={letter.toUpperCase()}
-            variant="outlined"
             size="medium"
             color="primary"
             className="picks-container"
@@ -108,6 +107,10 @@ class Game extends React.Component {
         temp[(health--)-1] = unHealthIcon;
         this.setState({lives: [...temp], health: health});
       }
+      if (health === 0){
+        alert('LOST ALL HP, YOU LOSE!!!')
+        window.location.reload();
+      }
     }
   }
 
@@ -140,39 +143,56 @@ class Game extends React.Component {
       this.setState({picks : temp})
       console.log(this.state.displayed)
     }
+    this.checkWin()
+  }
+
+  checkWin() {
+    let win = this.state.displayed.length
+    for(const i in this.state.displayed) {
+      if(!(this.state.displayed[i] === '_')) {
+        win--;
+      }
+    }
+    if(win === 0) {
+      alert(('YOU GUESSED THE WORD "' + this.state.word + '" CONGRATS!!!'))
+      window.location.reload();
+    }
   }
 
   render() {
-
     return (
       <div className="page-container">
         <Header lives={this.state.lives}/>
-        <TextField
-          id="outlined-basic"
-          label="Enter your Synonym"
-          variant="outlined"
-        />
-        <Button
-          variant="contained"
-          disabled={this.state.submitted}
-          onClick={() => {
-          this.grabWord()
-          this.setState({submitted: true})
-          }}>
-          Submit
-        </Button>
-        <TextField
-          id="input"
-          label="Letter: "
-          variant="outlined"
-          className="letter-input"
-          inputProps={{ maxLength: 1, size: 2 }}
-          onKeyDown={(e) => this.onEnter(e.key, e.target.value.toLowerCase())}
+        <div className="userInputs">
+          <TextField
+            id="outlined-basic"
+            label="Enter your Synonym"
+            variant="outlined"
           />
-        <div>
+          <Button
+            variant="contained"
+            disabled={this.state.submitted}
+            onClick={() => {
+            this.grabWord()
+            this.setState({submitted: true})
+            }}>
+            Submit
+          </Button>
+          <TextField
+            id="input"
+            label="Letter: "
+            variant="outlined"
+            className="letter-input"
+            inputProps={{ maxLength: 1, size: 2 }}
+            onKeyDown={(e) => {
+              this.onEnter(e.key, e.target.value.toLowerCase());
+              e.target.value = ""
+            }}/>
+        </div>
+        <div className="displayed">
           <DisplayLetters displayed={this.state.displayed}/>
         </div>
-        <div>
+        <div className="chips">
           <ChipsLetter picks={this.state.picks}/>
         </div>
       </div>
