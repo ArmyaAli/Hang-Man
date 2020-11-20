@@ -65,6 +65,7 @@ class Game extends React.Component {
   grabWord() {
     // API CALL
     console.log(this.state.url);
+    console.log(this.state.category);
     lookForWords(this.state.url + this.state.category).then((data) => {
       let foundWord = data[getRandomInt(data.length)].word.toLowerCase();
       this.setState({ word: foundWord });
@@ -168,6 +169,7 @@ class Game extends React.Component {
             id="outlined-basic"
             label="Enter your Synonym"
             variant="outlined"
+            onChange={(e) => this.setState({category: e.target.value})}
           />
           <Button
             variant="contained"
