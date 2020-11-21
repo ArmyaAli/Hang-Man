@@ -1,3 +1,6 @@
+* {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;    
+}
 html {
     padding: 0;
     margin: 0;
@@ -49,5 +52,21 @@ body {
     margin: 8px 0;
     display: inline-block;
     box-sizing: border-box;
+    text-align: center;
+}
+
+.diag {
+    padding: 32px;
+    width: 400px;
+}
+
+.authors {
+    list-style: none;
+    margin: 8px auto;
+    padding: 0;
+}
+
+
+.center {
     text-align: center;
 }

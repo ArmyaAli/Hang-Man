@@ -8,7 +8,6 @@ import Chip from '@material-ui/core/Chip';
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
-
 const heartIcon = <FavoriteIcon />;
 const unHealthIcon = <FavoriteBorderIcon />;
 
@@ -46,6 +45,8 @@ function DisplayLetters(props) {
   return letters;
 }
 
+
+
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -58,8 +59,10 @@ class Game extends React.Component {
       picks: new Set(),
       displayed: [],
       submitted: false,
+      updateLives:  (n) => { this.setState({lives: this.setLivesArray(n), health: n}) }
     };
     this.state.lives = this.setLivesArray(this.state.health);
+    this.state.updateLives = this.state.updateLives.bind(this)
   }
 
   grabWord() {
@@ -84,6 +87,7 @@ class Game extends React.Component {
     return hp
   }
 
+
   setBlanksArray(word) {
     let temp = [];
     for (let i = 0; i < word.length; ++i) {
@@ -101,7 +105,7 @@ class Game extends React.Component {
   }
 
   loseHP(shouldILoseHP) {
-    if (!shouldILoseHP){
+    // if (!shouldILoseHP){
       let temp = this.state.lives;
       let health = this.state.health;
       if(health > 0) {
@@ -112,7 +116,7 @@ class Game extends React.Component {
         alert('LOST ALL HP, YOU LOSE!!!')
         window.location.reload();
       }
-    }
+    // }
   }
 
   isDisplayed(shouldIDisplay, letter) {
@@ -161,9 +165,10 @@ class Game extends React.Component {
   }
 
   render() {
+    console.log("HELLO NIGGA", this.state.lives)
     return (
       <div className="page-container">
-        <Header lives={this.state.lives}/>
+        <Header key={this.state.lives} updateLives={this.state.updateLives} lives={this.state.lives} health={this.state.health}/>
         <div className="userInputs">
           <TextField
             id="outlined-basic"
